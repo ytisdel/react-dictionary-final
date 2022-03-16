@@ -7,9 +7,12 @@ export default function App() {
     <div className="App">
       <div className="container">
         <h1>React Dictionary App</h1>
-        <main>
+        <main className="mt-3">
           <Dictionary />
         </main>
+        <footer className="attribute mt-5">
+          This App was coded by Lona Tisdel using <a href="/"> Github </a>
+        </footer>
       </div>
     </div>
   );
