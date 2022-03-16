@@ -1,17 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Dictionary() {
-  return (
-    <form>
-      <div className="row">
-        <div className="col-6">
-          <input type="search" placeholder="Search" className="form-control" />
-        </div>
+  const [keyword, setKeyword] = useState(" ");
 
-        <div className="col-3">
-          <input type="submit" value="search" className="btn btn-primary" />
+  function search(event) {
+    event.preventDefault();
+    alert(`Searching for ${keyword} definition...`);
+  }
+
+  function handleKeywordChange(event) {
+    setKeyword(event.target.value);
+  }
+
+  return (
+    <div className="Dictionary">
+      <form onSubmit={search}>
+        <div className="row">
+          <div className="col-3">
+            <input
+              type="search"
+              placeholder="Search"
+              className="form-control"
+              onChange={handleKeywordChange}
+            />
+          </div>
+
+          <div className="col-3">
+            <input type="submit" value="search" className="btn btn-primary" />
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
