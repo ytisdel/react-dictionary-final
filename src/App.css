@@ -1,3 +1,7 @@
+body {
+  background: #f6e8e8;
+}
+
 .App .container {
   margin: 30px auto;
 }

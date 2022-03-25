@@ -4,45 +4,59 @@ import Results from "./Results";
 import "./Dictionary.css";
 
 export default function Dictionary() {
-  const [keyword, setKeyword] = useState(" ");
+  const [keyword, setKeyword] = useState("Hello");
   const [results, setResults] = useState(null);
+  const [loaded, setLoaded] = useState(false);
 
   function handleResponse(response) {
-    console.log(response.data[0]);
     setResults(response.data[0]);
   }
 
-  function search(event) {
-    event.preventDefault();
-
+  function search() {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
     console.log(apiUrl);
     axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
   }
 
   function handleKeywordChange(event) {
     setKeyword(event.target.value);
   }
 
-  return (
-    <div className="Dictionary">
-      <form onSubmit={search}>
-        <div className="row">
-          <div className="col-3">
-            <input
-              type="search"
-              placeholder="Search"
-              className="form-control"
-              onChange={handleKeywordChange}
-            />
-          </div>
+  function load() {
+    setLoaded(true);
+    search();
+  }
 
-          <div className="col-3">
-            <input type="submit" value="search" className="btn btn-primary" />
+  if (loaded) {
+    return (
+      <div className="Dictionary">
+        <section>
+          <form onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="col-12">
+                <input
+                  type="search"
+                  placeholder="Search"
+                  className="form-control"
+                  onChange={handleKeywordChange}
+                />
+              </div>
+            </div>
+          </form>
+          <div className="hint">
+            Suggested Keywords: sunset, hello, sunflower, water, etc...
           </div>
-        </div>
-      </form>
-      <Results results={results} />
-    </div>
-  );
+        </section>
+        <Results results={results} />
+      </div>
+    );
+  } else {
+    load();
+    return "Loading";
+  }
 }
