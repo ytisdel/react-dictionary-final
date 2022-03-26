@@ -36,6 +36,7 @@ export default function Dictionary() {
     return (
       <div className="Dictionary">
         <section>
+          <h1 className="wordSearch"> What word do you want to search?</h1>
           <form onSubmit={handleSubmit}>
             <div className="row">
               <div className="col-12">

@@ -5,3 +5,8 @@ body {
 .App .container {
   margin: 30px auto;
 }
+
+.container h1,
+footer {
+  text-align: center;
+}
