@@ -2,6 +2,11 @@ body {
   background: #f6e8e8;
 }
 
+.App {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 .App .container {
   margin: 30px auto;
 }
