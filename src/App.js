@@ -6,7 +6,7 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>React Dictionary App</h1>
+        <h1>React Dictionary</h1>
         <main className="mt-3">
           <Dictionary />
         </main>
