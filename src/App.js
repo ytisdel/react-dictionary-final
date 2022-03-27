@@ -1,12 +1,18 @@
 import React from "react";
 import Dictionary from "./Dictionary";
 import "./App.css";
+import dictionary_heart from "./dictionary_heart.png";
 
 export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>React Dictionary</h1>
+        <img
+          src={dictionary_heart}
+          alt="dictionary"
+          className="topPhoto img-fluid"
+        />
+        <h1 className="appHeader">Dictionary</h1>
         <main className="mt-3">
           <Dictionary />
         </main>

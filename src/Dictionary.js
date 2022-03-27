@@ -5,7 +5,7 @@ import Photos from "./Photos";
 import "./Dictionary.css";
 
 export default function Dictionary() {
-  const [keyword, setKeyword] = useState("Hello");
+  const [keyword, setKeyword] = useState("hearts");
   const [results, setResults] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [photos, setPhotos] = useState(null);
@@ -57,7 +57,7 @@ export default function Dictionary() {
                 <input
                   type="search"
                   placeholder="Search"
-                  defaultValue="hello"
+                  defaultValue="hearts"
                   className="form-control"
                   onChange={handleKeywordChange}
                 />
